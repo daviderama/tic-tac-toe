@@ -49,3 +49,13 @@ ol, ul {
   margin-left: 100px;
 }
 
+.play-again-button {
+  background-color: black;
+  color: white;
+  border: none;
+  font: 20px "Century Gothic", Futura, sans-serif;
+  font-size: 30px;
+  height: 80px;
+  width: 360px;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './Board';
+import PlayAgain from './PlayAgain';
 
 class Game extends React.Component {
 
@@ -37,6 +38,14 @@ class Game extends React.Component {
     });
   }
 
+  handlePlayAgainClick() {
+    this.setState({
+      stepNumber: 0,
+      history: [ { squares: Array(9).fill(null) } ],
+      isXNext: true
+    });
+  }
+
   render() {
     const history = this.state.history;
     const current = history[ this.state.stepNumber ];
@@ -60,6 +69,9 @@ class Game extends React.Component {
       );
     });
 
+    const playAgainButton = ( winner || history.length == 10 ) ?
+      <PlayAgain onClick={ () => this.handlePlayAgainClick() } /> : null;
+
     return (
       <div className="game">
         <div className="game-board">
@@ -70,6 +82,7 @@ class Game extends React.Component {
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
+          <div>{playAgainButton}</div>
         </div>
       </div>
     );
